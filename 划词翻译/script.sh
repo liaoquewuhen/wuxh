@@ -7,9 +7,9 @@ word=`xclip -out`
 mean=`sdcv -n ${word}|grep "^[a-z]"`
 pkill notify-osd
 notify-send   "$mean"
-echo "<${word}>" >> ~/worker/bash/words.txt
-echo "{${mean}}" >> ~/worker/bash/words.txt
+echo "<${word}>" >> ~/git_wuxh/划词翻译/words.txt
+echo "{${mean}}" >> ~/git_wuxh/划词翻译/words.txt
 
-echo "**${word}**" >> ~/worker/bash/words.md
-echo ">${mean}" >> ~/worker/bash/words.md
-echo " " >> ~/worker/bash/words.md
+echo "**${word}**" >> ~/git_wuxh/划词翻译/words.md
+echo ">${mean}" >> ~/git_wuxh/划词翻译/words.md
+echo " " >> words.md
