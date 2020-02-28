@@ -40,3 +40,9 @@ n.[计算机] DOS命令:加上或修改磁盘的标签;
 **Archive**
 >vt.归档
  
+**global**
+>a. 通用的,全球的,全世界的;
+**checkout**
+>
+**checkout**
+>
