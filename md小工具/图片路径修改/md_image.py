@@ -7,14 +7,20 @@ files_name = [x for x in os.listdir() if '.md' in x]            #取出当前目
 sep_here = os.sep
 folder_name = input("可输入本地存在的文件夹名以存放图片:（默认为image）")
 find_folder = False
+
 while find_folder == False:
 	if folder_name == "":
 		folder_name = "image"
 	if folder_name not in os.listdir():
-		folder_name = input("文件夹不存在，请输入有效的名字")
+		chocie = input("文件夹不存在，是否直接创建文件夹[y]/n")
+		if chocie == "" or chocie == "y":
+			os.mkdir(folder_name)
+		else:
+			folder_name = input("可输入本地存在的文件夹名以存放图片:（默认为image）")
 	else:
 		find_folder = True
-		
+	
+
 for i in range(len(files_name)):
 	file_date = ""
 	print("正在修改文件：",files_name[i])
