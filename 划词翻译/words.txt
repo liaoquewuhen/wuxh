@@ -23,3 +23,55 @@ n.[计算机] DOS命令:加上或修改磁盘的标签;}
 {}
 <checkout>
 {}
+<music>
+{n. 音乐,乐曲;}
+<consent>
+{n. 同意,许可;
+v. 同意,承诺;}
+<completed>
+{a. 完全的,熟练的;
+v. 完成,完工,使圆满;}
+<completed>
+{a. 完全的,熟练的;
+v. 完成,完工,使圆满;}
+<completed>
+{a. 完全的,熟练的;
+v. 完成,完工,使圆满;}
+<completed>
+{a. 完全的,熟练的;
+v. 完成,完工,使圆满;}
+<completed>
+{a. 完全的,熟练的;
+v. 完成,完工,使圆满;}
+<completed>
+{a. 完全的,熟练的;
+v. 完成,完工,使圆满;}
+<completed>
+{a. 完全的,熟练的;
+v. 完成,完工,使圆满;}
+<completed>
+{a. 完全的,熟练的;
+v. 完成,完工,使圆满;}
+<completed>
+{a. 完全的,熟练的;
+v. 完成,完工,使圆满;}
+<Import>
+{n. 进口货,输入,意义;
+v. 输入,含...的意思,重要;}
+<module>
+{n. 组件;}
+<module>
+{n. 组件;}
+<Electronic>
+{a. 电子的;}
+<specifically>
+{ad. 特定的,明确的;}
+<Cartesian>
+{a. 笛卡尔的,笛卡尔哲学的;
+n. 笛卡尔信徒;}
+<proposal>
+{n. 提议,计划,求婚;}
+<proposal>
+{n. 提议,计划,求婚;}
+<quantifies>
+{v. 定量,表示份量,称量;}
