@@ -29,7 +29,8 @@ for i in range(len(files_name)):
 		for j in range(len(lines)):
 			if('![' in lines[j]):
 				first = lines[j].find('(')
-				thisline = lines[j][first+1:-2]                 #取出这一行的图片路径	
+				next = lines[j].find(')')
+				thisline = lines[j][first+1:next]                 #取出这一行的图片路径	
 				#print('原图片存放在：',thisline)
 				path,name = os.path.split(thisline)
 				new_path = './'+folder_name+'/' + name                    #这里默认存在image目录，TODO
