@@ -1,3 +1,4 @@
+
 import os
 import shutil
 import re
@@ -6,11 +7,15 @@ import re
 noExist = True
 
 while noExist:
-	fileway = input("输入一个路径")
+	fileway = input("输入一个路径(默认在本文件夹进行处理)：")
+	if fileway == "":
+		print("将在本文件夹进行处理")
+		fileway = "."
+	else:
+		fileway = os.path.expanduser(fileway)
 	try:
 		os.listdir(fileway)
 	except FileNotFoundError:
-		print('请输入正确的路径')
 		continue
 	noExist = False
 
@@ -18,7 +23,7 @@ while noExist:
 
 files_name = [x for x in os.listdir(fileway) if '.md' in x]            #取出指定目录下面所有md文件
 sep_here = os.sep
-folder_name = input("可输入指定目录存在的文件夹名以存放图片:（默认为image）")
+folder_name = input("可输入指定目录存在的文件夹名以存放图片:(默认为image)")
 find_folder = False
 
 while find_folder == False:
@@ -29,7 +34,7 @@ while find_folder == False:
 		if chocie == "" or chocie == "y":
 			os.mkdir(folder_name)
 		else:
-			folder_name = input("可输入指定目录存在的文件夹名以存放图片:（默认为image）")
+			folder_name = input("可输入指定目录存在的文件夹名以存放图片:(默认为image)")
 	else:
 		find_folder = True
 	
@@ -46,23 +51,31 @@ for i in range(len(files_name)):
 				thisline = lines[j][first+1:next]                 #取出这一行的图片路径	
 				#print('原图片存放在：',thisline)
 				path,name = os.path.split(thisline)
-				new_path = './'+folder_name+'/' + name                    #这里默认存在image目录，TODO
+				new_path = './'+folder_name+'/' + name                    #这里默认存在image目录
 				abs_path = fileway + '/'+folder_name+'/' + name
 				lines[j] = lines[j].replace(thisline,new_path)  #替换md笔记里路径				
 				if path[0] != '.':
-					shutil.copy2(thisline,abs_path)
-					#print('将文件复制到:',new_path)
+					try:
+						shutil.copy2(thisline,abs_path)
+						#print('将文件复制到:',new_path)
+					except shutil.SameFileError:
+						pass
+						#print('目标文件夹存在相同文件')
 			if('<img' in lines[j]):                                   #html格式插入的图片
 				first = lines[j].find('\"')
 				next = lines[j].find("\"",first+1)
 				thisline = lines[j][first+1:next]                 #取出这一行的图片路径	
 				#print('原图片存放在：',thisline)
 				path,name = os.path.split(thisline)
-				new_path = './'+folder_name+'/' + name                    #这里默认存在image目录，TODO
+				new_path = './'+folder_name+'/' + name                    #这里默认存在image目录
 				lines[j] = lines[j].replace(thisline,new_path)  #替换md笔记里路径				
 				if path[0] != '.':
-					shutil.copy2(thisline,new_path)
-					#print('将文件复制到:',new_path)
+					try:
+						shutil.copy2(thisline,abs_path)
+						#print('将文件复制到:',new_path)
+					except shutil.SameFileError:
+						pass
+						#print('目标文件夹存在相同文件')
 			file_date = file_date + lines[j]                    #存储新的文件内容
 	with open(fileway+'/'+files_name[i],'w',encoding = 'UTF-8') as f:	
 		f.write(file_date)
